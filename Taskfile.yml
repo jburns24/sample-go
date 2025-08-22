@@ -1,0 +1,63 @@
+version: '3'
+
+vars:
+  BINARY: server
+  PORT: 8080
+  IMAGE: gin-api
+
+tasks:
+  default:
+    cmds:
+      - task: help
+
+  help:
+    desc: List available tasks
+    cmds:
+      - task -l
+
+  tidy:
+    desc: Tidy Go module dependencies
+    cmds:
+      - go mod tidy
+
+  fmt:
+    desc: Format Go code
+    cmds:
+      - go fmt ./...
+
+  vet:
+    desc: Vet Go code
+    cmds:
+      - go vet ./...
+
+  build:
+    desc: Build the Go binary
+    cmds:
+      - go build -o {{.BINARY}} .
+
+  run:
+    desc: Run the app locally (PORT={{.PORT}})
+    env:
+      PORT: "{{.PORT}}"
+    cmds:
+      - go run .
+
+  test:
+    desc: Run tests
+    cmds:
+      - go test ./...
+
+  clean:
+    desc: Remove build artifacts
+    cmds:
+      - rm -f {{.BINARY}}
+
+  docker:build:
+    desc: Build Docker image {{.IMAGE}}
+    cmds:
+      - docker build -t {{.IMAGE}} .
+
+  docker:run:
+    desc: Run Docker container mapping PORT={{.PORT}}
+    cmds:
+      - docker run --rm -e PORT={{.PORT}} -p {{.PORT}}:{{.PORT}} {{.IMAGE}}

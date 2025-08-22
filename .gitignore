@@ -1,0 +1,44 @@
+# Go build outputs
+/server
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Build artifacts
+/bin/
+/build/
+/dist/
+*.out
+
+# Tests and coverage
+*.test
+coverage.*
+coverage.out
+
+# IDE / editor settings
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Env files
+.env
+.env.*
+
+# Vendor (if used)
+vendor/
+
+# Logs
+*.log
+
+# Caches
+.cache/
+
+# Go workspace files (if not committed)
+go.work
+go.work.sum

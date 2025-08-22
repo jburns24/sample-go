@@ -1,0 +1,17 @@
+# Binaries
+server
+
+# VCS
+.git
+
+# Dependency / build caches
+**/node_modules
+**/.cache
+**/dist
+**/build
+
+# Go
+**/*.test
+**/.idea
+**/.vscode
+**/*.log
