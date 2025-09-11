@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # Build stage
-FROM golang:1.22-alpine AS builder
+FROM golang:1-alpine AS builder
 WORKDIR /app
 ENV CGO_ENABLED=0
 
@@ -16,7 +16,7 @@ COPY . .
 RUN --mount=type=cache,target=/go/pkg/mod go build -o server .
 
 # Runtime stage
-FROM alpine:3.20
+FROM scratch
 WORKDIR /app
 ENV GIN_MODE=release
 
