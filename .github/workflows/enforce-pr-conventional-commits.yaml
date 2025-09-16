@@ -2,8 +2,11 @@ name: Enforce PR Conventional Commits
 
 on:
   pull_request:
-    branches:
-      - master
+    types:
+      - opened
+      - edited
+      - synchronize
+      - reopened
 
 jobs:
   validate-pr-title:
