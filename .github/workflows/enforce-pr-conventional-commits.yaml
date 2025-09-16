@@ -1,0 +1,22 @@
+name: Enforce PR Conventional Commits
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  lint-commits:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lint PR commits with commitlint
+        uses: amitsingh-007/commitlint-github-action@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Lint PR title with conventional-pr-title
+        uses: amitsingh-007/conventional-pr-title@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
