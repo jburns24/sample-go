@@ -4,7 +4,7 @@
 # Documentation: https://semantic-release.gitbook.io/semantic-release/usage/configuration
 
 # Enable dry run mode to preview the next release without publishing or pushing any changes.
-dryRun: true
+dryRun: false
 
 # The branches on which releases happen are NOT specified here.
 # By default, semantic-release uses:
