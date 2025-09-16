@@ -1,0 +1,28 @@
+# .releaserc.yaml
+
+# semantic-release configuration file
+# Documentation: https://semantic-release.gitbook.io/semantic-release/usage/configuration
+
+# Enable dry run mode to preview the next release without publishing.
+dryRun: false
+
+# The default branches used by semantic-release are:
+# - master
+# - main
+# - next
+# - next-major
+# - beta (prerelease)
+# - alpha (prerelease)
+# - Maintenance branches matching N.N.x, N.x.x, or N.x
+# See: https://semantic-release.gitbook.io/semantic-release/usage/configuration#branches
+
+# Git tag format for releases (default: v${version})
+# See: https://semantic-release.gitbook.io/semantic-release/usage/configuration#tagformat
+tagFormat: 'v${version}'
+
+# Plugins to use in the release pipeline
+# See: https://semantic-release.gitbook.io/semantic-release/usage/plugins
+plugins:
+  - '@semantic-release/commit-analyzer' # https://github.com/semantic-release/commit-analyzer
+  - '@semantic-release/release-notes-generator' # https://github.com/semantic-release/release-notes-generator
+  - '@semantic-release/github' # https://github.com/semantic-release/github
