@@ -10,11 +10,11 @@ This project uses [semantic-release](https://semantic-release.gitbook.io/semanti
 
 ### Key Files in the Repository
 
-- [`.releaserc.yaml`](file:///Users/jburns/git/sample-go/.releaserc.yaml): semantic-release configuration.
-- [`.github/chainguard/semantic-release.sts.yaml`](file:///Users/jburns/git/sample-go/.github/chainguard/semantic-release.sts.yaml): octo-sts trust policy for secure token federation.
-- [`.github/workflows/semantic-release.yaml`](file:///Users/jburns/git/sample-go/.github/workflows/semantic-release.yaml): GitHub Actions workflow for releases.
-- [`.github/workflows/docker-build.yaml`](file:///Users/jburns/git/sample-go/.github/workflows/docker-build.yaml): Docker build and push workflow.
-- [`.github/workflows/enforce-pr-conventional-commits.yaml`](file:///Users/jburns/git/sample-go/.github/workflows/enforce-pr-conventional-commits.yaml): Enforces PR titles to follow [Conventional Commits](https://www.conventionalcommits.org/).
+- [`.releaserc.yaml`](./.releaserc.yaml): semantic-release configuration.
+- [`.github/chainguard/semantic-release.sts.yaml`](./.github/chainguard/semantic-release.sts.yaml): octo-sts trust policy for secure token federation.
+- [`.github/workflows/semantic-release.yaml`](./.github/workflows/semantic-release.yaml): GitHub Actions workflow for releases.
+- [`.github/workflows/docker-build.yaml`](./.github/workflows/docker-build.yaml): Docker build and push workflow.
+- [`.github/workflows/enforce-pr-conventional-commits.yaml`](./.github/workflows/enforce-pr-conventional-commits.yaml): Enforces PR titles to follow [Conventional Commits](https://www.conventionalcommits.org/).
 
 ### External References
 
