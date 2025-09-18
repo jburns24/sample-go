@@ -1,0 +1,55 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+      - '[0-9]+.x'         # distribution branch
+      - '[0-9]+.[0-9]+.x'  # distribution branch
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+
+      - name: Install dependencies
+        run: npm install --no-save semantic-release
+
+      - name: Install semantic-release plugins
+        run: |
+          if [ -f .releaserc.yaml ]; then
+            plugins=$(yq '.plugins[] | select(type == "str")' .releaserc.yaml | xargs)
+            if [ -n "$plugins" ]; then
+              npm install --no-save $plugins
+            fi
+          fi
+
+      # - name: Setup app environment and run tests
+      #   run: |
+      #     # Add environment setup and test commands here
+      #     echo "Run tests"
+
+      - name: Setup octo-sts
+        uses: octo-sts/action@v1.0.0
+        id: octo-sts
+        with:
+          scope: jburns24/sample-go
+          identity: semantic-release
+
+      - name: Run semantic-release
+        env:
+          GITHUB_TOKEN: ${{ steps.octo-sts.outputs.token }}
+        run: npx semantic-release

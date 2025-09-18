@@ -1,0 +1,17 @@
+# semantic-release.sts.yaml
+
+# Octo STS Trust Policy for semantic-release workflows
+# Documentation:
+# - https://github.com/liatrio/octo-sts-guide
+# - https://github.com/octo-sts/action
+# Example:
+# - https://github.com/liatrio/octo-sts-guide/blob/main/docs/repo-from-same-repo.md
+
+issuer: https://token.actions.githubusercontent.com
+
+# Allow any workflow in this repository to request a token.
+# Pattern: repo:{org}/{repo}:.* (matches all refs in this repo)
+subject_pattern: "repo:jburns24/sample-go:.*"
+
+permissions:
+  contents: write
