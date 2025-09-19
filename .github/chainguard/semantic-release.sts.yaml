@@ -1,0 +1,15 @@
+issuer: https://token.actions.githubusercontent.com
+
+# subject_pattern defines which repositories and refs are allowed to request tokens.
+# This pattern allows any ref (branch, tag, etc.) in the 'jburns24/sample-go' repository.
+# See: https://github.com/liatrio/octo-sts-guide/blob/main/docs/repo-from-same-repo.md
+subject_pattern: "repo:jburns24/sample-go:.*"
+
+permissions:
+  # Grants write access to repository contents (required for semantic-release to create releases, tags, etc.)
+  # See: https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs
+  contents: write
+
+# Example usage and more details:
+# https://github.com/liatrio/octo-sts-guide/blob/main/docs/repo-from-same-repo.md
+# https://github.com/octo-sts/action#usage
