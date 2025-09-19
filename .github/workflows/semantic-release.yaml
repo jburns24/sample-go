@@ -30,9 +30,9 @@ jobs:
       #     # Add environment setup and test commands here
       #     echo "Run your tests here"
 
-      - name: Install semantic-release and plugins
-        run: |
-          grep -Eo '@semantic-release/[^": ]+' .releaserc.yaml | sort -u | xargs -r npm install --no-save semantic-release
+      # - name: Install semantic-release and plugins
+      #   run: |
+      #     grep -Eo '@semantic-release/[^": ]+' .releaserc.yaml | sort -u | xargs -r npm install --no-save semantic-release
 
       - name: Setup octo-sts
         uses: octo-sts/action@v1.0.0
