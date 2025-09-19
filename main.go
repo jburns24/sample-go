@@ -19,7 +19,7 @@ func main() {
 	r.GET("/hello", func(c *gin.Context) {
 		name := c.Query("name")
 		if name == "" {
-			name = "world"
+			name = "world, have a great day! Come to my open office after this"
 		}
 		c.JSON(http.StatusOK, gin.H{"message": "hello " + name})
 	})
